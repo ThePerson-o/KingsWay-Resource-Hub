@@ -5,24 +5,39 @@
   box-sizing: border-box;
 }
 
+/* Flexbox Nav Bar setup */
 .topnavbar {
     display: flex;
+    /* x-axis */
     justify-content: space-between;
+    /* y-axis */
     align-items: center;
     background-color: #3398db;
-    padding: 4px 5%;
+    padding: 4px;
     height: 70px;
 }
 
+/* Logo Setup */
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+    margin: 4px 20px; 
+}
+
+/* Navigation links */
 .nav_links {
     display: flex;
+    gap:10px;
     list-style: none;
+    padding: 4px 5%;
 }
 
 .nav_links li {
     margin-left: 20px;
 }
 
+/* Link text style */
 .nav_links a {
     text-decoration: none;
     color: #333333;
@@ -31,13 +46,8 @@
     transition: 0.3px ease;
 }
 
+/* Link text hover state */
 .nav_links a:hover {
     color: #ffffff;
 }
 
-.logo img {
-    height: 50px;
-    width: auto;
-    display: block;
-    margin: -20px;
-}
