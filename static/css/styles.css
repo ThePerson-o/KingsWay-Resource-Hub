@@ -84,7 +84,7 @@
     color:white; 
     font-size: 5rem;
     font-weight: bold;
-    margin-bottom: small;
+    margin-bottom: large;
 }
 
 /* Subheading */
@@ -98,28 +98,24 @@
 /* Scroll arrow */
 .scroll-arrow {
     display:block;
-    color:white;
-    font-size: large;
+    font-size: 2.5rem; 
+    animation: bounce 1600ms infinite cubic-bezier(0.445, 0.05, 0.55, 0.95); 
+    cursor: pointer;
     margin-top: 50px;
+    height: 20px;
+}
+
+.scroll-arrow a {
+    color:white;
+    text-decoration: none;
 }
 
 @keyframes bounce {
-    0% {
-        transform: translateY(0%);
-    }
-
-    50% {
-        translate: translateY(10px);
-    }
-
-    100% {
-        transform: translatYX(100%);
-    }
+50% {
+    transform: translateY(-30px);
+}
 }
 
-.scroll-arrow {
-    animation: bounce 1.5s infinite; 
-}
 
 /* Mobile responsive */
 @media (max-width: 480px) {
