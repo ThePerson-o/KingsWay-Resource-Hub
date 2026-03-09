@@ -1,20 +1,16 @@
 # database.py
 # Handles the database connection and query
 
-# import mysql connector library
-import mysql.connector
+# import sqlite3
+import sqlite3
 
-# DB_Config dictionary stores connection details in one place
-DB_CONFIG = {
-    "host":"localhost",
-    "user":"root",
-    "password":"",
-    "database":"app"
-}
+# DB_Config - for SQLite, just the db file
+DB_FILE = 'app.db'
 
 # Connect to the database
 def get_db_connection():
-    connection = mysql.connector.connect(**DB_CONFIG)
+    connection = sqlite3.connect(DB_FILE)
+    connection.row_factory = sqlite3.Row  # to get dict-like rows
     return connection
 
 def query_db(query, params=()):
@@ -22,7 +18,7 @@ def query_db(query, params=()):
     connection = get_db_connection()
 
     # Store the params as a dictionary instead of plain text
-    cursor = connection.cursor(dictionary=True)
+    cursor = connection.cursor()
 
     # execute query with params - prevents SQL injection
     cursor.execute(query, params)

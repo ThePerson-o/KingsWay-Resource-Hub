@@ -127,3 +127,9 @@
         font-size: smaller;
     }
 }
+
+/* Subject card colours */
+.subject-card.mathematics { border-top: 4px solid #3498db; }
+.subject-card.science     { border-top: 4px solid #27ae60; }
+.subject-card.english     { border-top: 4px solid #e74c3c; }
+.subject-card.dgt         { border-top: 4px solid #9b59b6; }

@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- Document Setup -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>KWS Resource Hub</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <!-- Link to JS -->
-    <script src="script.js"></script>  
-    <!-- Font Awesome setup -->
-    <script src="https://kit.fontawesome.com/c703a6f906.js" crossorigin="anonymous"></script>
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block title %}Home | KWS Resource Hub{% endblock %}
 
-    <!-- Top Navigation Bar -->
-    <nav class="topnavbar">
-        <!-- Logo Section -->
-        <div class="logo">
-            <a href="#"><img src="/img/KingsWayLogo.svg" alt="KingsWayLogo"></a>
-        </div>
+{% block content %}
 
-        <!-- Nav Bar Links -->
-        <ul class="nav_links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="maths.html">Maths</a></li>
-            <li><a href="science.html">Science</a></li>
-            <li><a href="english.html">English</a> </li>
-        </ul>
-    </nav>
-    
     <!-- Hero section -->
     <section class="hero">
 
@@ -45,7 +18,7 @@
 
             <!-- Down arrow -->
             <div class="scroll-arrow">
-                <a href="#">
+                <a href="#subjects">
                     <!-- FontAwsome  -->
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
@@ -54,16 +27,28 @@
     </section>
 
     <!-- Subjects section -->
-    <section class="subject-selection">
+    <section class="subject-selection" id="subjects">
         <!-- Section heading -->
-        <h2>Find resources by</h2>
+        <h2>Find resources by subject</h2>
         
         <!-- Container section -->
         <div class="card-container">
             
+            <!-- Jinja loop for subject cards -->
+
+            {% for subject in subjects %}
+                <a href="/{{subject.url}}"
+                class="subject-card {{subject.name | lower}}">
+                    <i class ="{{subject.icon}}"></i>
+                    <h3>{{ subject.name }}</h3>
+                    <p>{{ subject.description }}</p>
+                </a>
+            {% endfor %}
+
         </div>
+            
 
     </section>
-</body>
-</html>
+ 
+{% endblock %}
 
